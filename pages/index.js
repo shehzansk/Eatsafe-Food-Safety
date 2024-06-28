@@ -51,10 +51,10 @@ const Index = () => {
       
     <header className='pt-2'>
       <nav className=' flex justify-between items-center px-5'>
-      <a href='/'><img src="./logo.png"  className='w-[75px] h-[60px] md:w-[85px] md:h-[70px] lg:w-[90px] lg:h-[75px]' /></a>
+      <a href='/'><img src="./logo.png"  className='w-14 h-12 md:w-18 md:h-14 lg:w-20 lg:h-16' /></a>
       <div className='pr-8 pt-3 lg:text-xl md:text-lg text-sm'>
-      <a href='/About' className='mr-5'>About</a>
-      <a href='/Contact'>Contact</a>
+      <a href='/' className='mr-5'>About</a>
+      <a href='/'>Contact</a>
       </div>
       </nav>
     </header>
@@ -84,7 +84,7 @@ const Index = () => {
           <button type="submit" className="lg:w-2/12 md:w-3/12 sm:w-4/12 w-5/12 lg:mt-5 mt-3 lg:text-xl md:text-lg sm:text-sm text-xs bg-[#C62828] rounded-md border border-[#cb714e] hover:bg-[#388E3C] text-[#efb961] font-bold py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 ">
               Check
           </button>
-        {ratingImg && <img src="/RatingInfo.png" alt="rating1-2" width={500} className="mt-5" />}
+        {ratingImg && <img src="/RatingInfo.png" alt="rating1-2" width={400} className="mt-5" />}
       </form>
 
           
