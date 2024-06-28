@@ -9,7 +9,15 @@ export default async function handler(req, res) {
 
     try {
       const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-      const prompt = `Provide a detailed analysis of the food product "${foodName}". Discuss its safety, list any potential harmful substances in points(pros and cons). In 100 words. Conclude with a rating between 1 to 10.`;
+      // const prompt = `Provide a detailed analysis of the food product "${foodName}". Discuss its safety, list any potential harmful substances in points(pros and cons). In 100 words. Conclude with a rating between 1 to 10.`;
+      const prompt = `Provide a detailed analysis of the food product "${foodName}". Include the following sections:
+        1. Product Overview: Brief description of the food product.
+        2. Safety Analysis: Discuss its safety comprehensively.
+        3. Pros and Cons: List potential beneficial and harmful substances in points.
+        4. Safety Rating: Conclude with a rating between 1 to 10 and explain the reason for this rating.
+        5. Recommendations: Offer actionable advice or recommendations based on the analysis. 
+
+        Please keep the entire response concise, less than 100 words.`;
 
       const result = await model.generateContent(prompt);
       const response = await result.response;
@@ -22,11 +30,12 @@ export default async function handler(req, res) {
         const level = hashes.length;
         return `<h${level}>${title}</h${level}>`;
       }); // Headings
-      text = text.replace(/\n/g, '<br>'); // Line breaks
+      text = text.replace(/\n/g, '<br/>'); // Line breaks
 
-      const ratingRegex = /<(strong|b)>(Rating|Overall Rating):<\/(strong|b)>\s*(\d+)\/(?:<(strong|b)>)?10(?:<\/(strong|b)>)?/;
+      const ratingRegex = /(\d+)\/10/;
       const match = text.match(ratingRegex);
-      const rating = match ? parseInt(match[4]) : null;
+      const rating = match ? parseInt(match[1]) : null;
+
 
       res.status(200).json({ text, rating });
     } catch (error) {
