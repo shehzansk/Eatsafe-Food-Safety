@@ -99,8 +99,8 @@ const Index = () => {
         </div>
 
         <div className="App flex justify-center items-center flex-grow mb-4">
-          <div className="w-[80%] lg:w-[60%] bg-[#05050585] p-4 text-[#efb961] rounded-lg text-xs md:text-sm lg:text-lg lg:mt-2 mt-8">
-            <h1 className="text-center text-xl font-bold mt-3 lg:text-3xl md:text-2xl">
+          <div className="w-[80%] lg:w-[60%] bg-[#05050585] p-4 text-[#efb961] rounded-lg text-sm md:text-sm lg:text-lg lg:mt-2 mt-8">
+            <h1 className="text-center text-2xl font-bold mt-3 lg:text-3xl md:text-2xl">
               Welcome to EatSafe
             </h1>
             <p className="text-center mt-3">
@@ -152,7 +152,7 @@ const Index = () => {
             )}
             {showResults && (
               <div className="flex flex-col items-center mt-4">
-                <div className="w-full bg-[#05050585] p-4 text-[#efb961] rounded-lg text-xs md:text-sm lg:text-md">
+                <div className="w-full bg-[#05050585] p-4 text-[#efb961] rounded-lg text-sm lg:text-base">
                   <h2 className="text-center mb-3">Results:</h2>
                   <div dangerouslySetInnerHTML={{ __html: result }}></div>
                   {rating && (
