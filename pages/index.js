@@ -78,14 +78,14 @@ const Index = () => {
             <img src="./menu.svg" className="w-7 h-7" />
           </button>
           <div className="hidden md:flex pr-6 pt-3 lg:text-lg md:text-md text-xs font-medium">
-            <a href="/About" className="mr-4">
+            <a href="/" className="mr-4">
               About
             </a>
-            <a href="/Contact">Contact</a>
+            <a href="/">Contact</a>
           </div>
         </header>
 
-        <div className={`fixed top-0 right-0 h-full w-64 p-2 text-base bg-[#05050585] text-[#efb961] z-50 transform ${isDrawerOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-500 ease-in-out md:hidden`}>
+        <div className={`fixed top-0 right-0 h-full w-56 p-2 text-base bg-[#2a2929e4] text-[#efb961] z-50 transform ${isDrawerOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-500 ease-in-out md:hidden`}>
           <button
             className="p-2 bg-[#05050590] w-full rounded-md"
             onClick={toggleDrawer}
