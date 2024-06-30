@@ -100,7 +100,7 @@ const MainContent = () => {
         {showResults && (
           <div className="flex flex-col items-center mt-4">
             <div className="w-full bg-[#05050585] p-4 text-[#efb961] rounded-lg text-sm lg:text-base">
-              <h2 className="text-center mb-3">Results:</h2>
+              {/* <h2 className="text-center mb-3">Results:</h2> */}
               <div dangerouslySetInnerHTML={{ __html: result }}></div>
               {rating && (
                 <div className="flex justify-center items-center mt-4">

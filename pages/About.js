@@ -18,8 +18,8 @@ const About = () => {
       <NavBar />
       
       <div className='flex justify-center items-center mt-auto mb-auto '>
-        <div className="w-[80%] lg:w-[60%] bg-[#05050585] p-4 text-[#efb961] rounded-lg text-sm md:text-sm lg:text-lg lg:mt-2 mt-8 mb-8 lg:mb:0" >
-          <h1 className="text-3xl font-bold mt-5">About EatSafe</h1>
+        <div className="w-[80%] lg:w-[60%] bg-[#05050585] p-6 text-[#efb961] rounded-lg text-sm md:text-sm lg:text-lg lg:mt-2 mt-8 mb-8 lg:mb:0" >
+          <h1 className="text-3xl font-bold mt-3">About EatSafe</h1>
           <p className="mt-5 text-lg">
             EatSafe is my project dedicated to ensuring food safety transparency. The motivation behind EatSafe stems from a desire to provide consumers with accurate, real-time information about the safety of their food choices.
           </p>

@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import "../app/pages.css";
 import "../app/globals.css";
+import Link from 'next/link';
 
 const NavBar = () => {
 
@@ -14,12 +15,12 @@ const NavBar = () => {
   return (
     <div>
       <header className="pt-2 flex justify-between items-center px-5">
-        <a href="/">
+        <Link href="/">
           <img
             src="./logo.png"
             className='w-14 h-12 md:w-18 md:h-14 lg:w-20 lg:h-16'
           />
-        </a>
+        </Link>
         <button
           className="text-white md:hidden"
           onClick={toggleDrawer}
@@ -27,10 +28,10 @@ const NavBar = () => {
           <img src="./menu.svg" className="w-7 h-7" />
         </button>
         <div className="hidden md:flex pr-6 pt-3 lg:text-lg md:text-md text-xs font-medium">
-          <a href="/About" className="mr-6">
+          <Link href="/About" className="mr-6">
             About
-          </a>
-          <a href="/Contact">Contact</a>
+          </Link>
+          <Link href="/Contact">Contact</Link>
         </div>
       </header>
 
@@ -42,8 +43,8 @@ const NavBar = () => {
           Close
         </button>
         <nav className="flex flex-col pt-2 space-y-2">
-          <a href="/About" onClick={toggleDrawer} className='bg-[#05050590] w-full p-4 rounded-md'>About</a>
-          <a href="/Contact" onClick={toggleDrawer} className='bg-[#05050590] w-full  p-4 rounded-md'>Contact</a>
+          <Link href="/About" onClick={toggleDrawer} className='bg-[#05050590] w-full p-4 rounded-md'>About</Link>
+          <Link href="/Contact" onClick={toggleDrawer} className='bg-[#05050590] w-full  p-4 rounded-md'>Contact</Link>
         </nav>
       </div>
     </div>
