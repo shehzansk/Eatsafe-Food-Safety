@@ -78,7 +78,7 @@ const MainContent = () => {
           </div>
           <button
             type="submit"
-            className="w-5/12 mt-3 text-xs md:text-sm lg:text-lg bg-[#388E3C] rounded-md border border-[#cb714e] hover:bg-[#388E3C] text-[#efb961] font-bold py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105"
+            className="w-5/12 mt-3 text-xs md:text-sm lg:text-lg bg-[#C62828] rounded-md border border-[#cb714e] hover:bg-[#388E3C] text-[#efb961] font-bold py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105"
           >
             Check
           </button>
