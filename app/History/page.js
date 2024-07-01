@@ -37,7 +37,7 @@ const History = () => {
               {chatHistory.map((chat, index) => (
                 <div key={index} className="my-4 ">
                   <div className='flex items-center justify-between lg:mt-12'>
-                    <h2 className="text-base md:text-xl lg:text-2xl  font-semibold bg-[#05050585] p-3 w-fit rounded-lg">Searched Item: {chat.foodName}</h2>
+                    <h2 className="text-base md:text-xl lg:text-2xl  font-semibold bg-[#05050585] p-3 w-fit rounded-lg">Item: {chat.foodName}</h2>
                     <button onClick={() => deleteChat(chat.foodName)}>
                       <img src='./delete.png' alt="delete" className='w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 lg:mr-10' />
                     </button>
