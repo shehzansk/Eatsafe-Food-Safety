@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from 'react';
 import axios from 'axios';
-import "../app/pages.css";
-import "../app/globals.css";
+import "../pages.css";
+import "../globals.css";
 
 const MainContent = () => {
   const [foodName, setFoodName] = useState('');
@@ -29,14 +29,26 @@ const MainContent = () => {
     setLoading(true);
 
     try {
+      // console.log(foodName); 
       const response = await axios.post('/api/checkFood', { foodName });
+      // console.log(response.data);
       const { text, rating } = response.data;
 
       setResult(text);
       setRating(rating);
       setShowResults(true);
+      
+      let repeated = 0;
+      let uniqueFoodName = foodName;
+      // console.log(localStorage.getItem(foodName) == undefined);
+      while (localStorage.getItem(uniqueFoodName) !== null) {
+        repeated += 1;
+        uniqueFoodName = `${foodName} - ${repeated}`;
+      }
+      localStorage.setItem(uniqueFoodName, text);
+
     } catch (err) {
-      console.error('Error checking food safety:', err);
+      console.error('😭 Error checking food safety:', err);
       setError('😭 Error checking food safety.');
     } finally {
       setLoading(false);
@@ -45,7 +57,7 @@ const MainContent = () => {
   };
 
   return (
-    <div className="App flex justify-center items-center flex-grow mb-4">
+    <div className="App flex justify-center items-center flex-grow mb-4 font-montserrat">
       <div className="w-[80%] lg:w-[60%] bg-[#05050585] p-4 text-[#efb961] rounded-lg text-sm md:text-sm lg:text-lg lg:mt-2 mt-8">
         <h1 className="text-center text-2xl font-bold mt-3 lg:text-3xl md:text-2xl">
           Welcome to EatSafe
@@ -57,38 +69,20 @@ const MainContent = () => {
 
         <form onSubmit={checkFoodSafety} className="flex flex-col items-center">
           <div className="relative w-10/12 mt-3">
-            <input
-              type="text"
-              id="foodName"
-              placeholder="Enter Food Name..."
-              value={foodName}
-              onChange={(e) => setFoodName(e.target.value)}
-              required
-              className="w-full p-2 text-center text-[#efb961] placeholder-[#cb714e] font-medium rounded-md border border-[#cb714e] focus:outline-none focus:ring focus:border-[#d89c3c] bg-[#00000035] hover:bg-[#00000050]"
-            />
+            <input type="text" id="foodName" placeholder="Enter Food Name..." value={foodName} onChange={(e) => setFoodName(e.target.value)} required
+              className="w-full p-2 text-center text-[#efb961] placeholder-[#cb714e] font-medium rounded-md border border-[#cb714e] focus:outline-none focus:ring focus:border-[#d89c3c] bg-[#00000035] hover:bg-[#00000050]" />
             {foodName && (
-              <button
-                type="button"
-                onClick={() => setFoodName('')}
-                className="absolute right-2 top-2 text-[#efb961] hover:text-[#efb961]"
-              >
+              <button type="button" onClick={() => setFoodName('')}
+                className="absolute right-2 top-2 text-[#efb961] hover:text-[#efb961]" >
                 <img src="./cross.svg" className="w-6 md:w-7 lg:w-8" />
               </button>
             )}
           </div>
-          <button
-            type="submit"
-            className="w-5/12 mt-3 text-xs md:text-sm lg:text-lg bg-[#C62828] rounded-md border border-[#cb714e] hover:bg-[#388E3C] text-[#efb961] font-bold py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105"
-          >
+          <button type="submit" className="w-5/12 mt-3 text-xs md:text-sm lg:text-lg bg-[#C62828] rounded-md border border-[#cb714e] hover:bg-[#388E3C] text-[#efb961] font-bold py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105" >
             Check
           </button>
           {ratingImg && (
-            <img
-              src="/RatingInfo.png"
-              alt="rating1-2"
-              width={300}
-              className="mt-5"
-            />
+            <img src="/RatingInfo.png" alt="rating1-2" width={300} className="mt-5" />
           )}
         </form>
 
@@ -104,12 +98,7 @@ const MainContent = () => {
               <div dangerouslySetInnerHTML={{ __html: result }}></div>
               {rating && (
                 <div className="flex justify-center items-center mt-4">
-                  <img
-                    src={`/rating${getMergedRating(rating)}.png`}
-                    alt={`Rating ${getMergedRating(rating)}`}
-                    width="500"
-                    className="mt-5"
-                  />
+                  <img src={`/rating${getMergedRating(rating)}.png`} alt={`Rating ${getMergedRating(rating)}`} width="500" className="mt-5" />
                 </div>
               )}
             </div>
