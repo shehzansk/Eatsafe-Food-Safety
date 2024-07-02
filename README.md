@@ -29,14 +29,6 @@ Visit [EatSafe](https://eatsafe.vercel.app) and start making informed food choic
 
 ---
 
-🌐 **Explore EatSafe:** [Visit EatSafe](https://eatsafe.vercel.app)
-
-Join the food safety movement! Let's prioritize health and transparency together.
-
-Here's a combined README.md for your EatSafe project, incorporating all the requested changes and information:
-
-```markdown
-
 ## Getting Started
 
 To get started with EatSafe locally:
