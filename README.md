@@ -42,7 +42,7 @@ To get started with EatSafe locally:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/eatsafe.git
+   git clone https://github.com/shehzansk/Eatsafe-Food-Safety.git
    cd eatsafe
    ```
 
